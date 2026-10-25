@@ -18,7 +18,7 @@
 
 ## 📌 Overview
 
-Active Directory offline auditor — BloodHound / LDIF / CSV misconfig & attack-path analysis
+OAD is a strictly offline, read-only auditor for Active Directory data that was collected elsewhere, so it performs no LDAP queries or network calls of any kind. It ingests BloodHound/SharpHound JSON, ldapsearch LDIF exports and CSV dumps, then evaluates Kerberos, delegation, account-hygiene, privilege, host and GPO misconfigurations against a built-in rule catalogue. Findings are mapped to MITRE ATT&CK with remediation guidance and rolled up into a weighted A+…F grade for defenders hardening a domain.
 
 ---
 
@@ -51,7 +51,11 @@ Active Directory offline auditor — BloodHound / LDIF / CSV misconfig & attack-
 ## 🚀 Usage
 
 ```bash
-./OAD
+./OAD --demo
+./OAD --path ./bloodhound_export.zip --paths
+./OAD -p ad_dump/ --format-out json -o report.json --fail-on high
+./OAD --list-rules
+./OAD --help
 ```
 
 ---
